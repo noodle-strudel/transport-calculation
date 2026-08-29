@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $1
+sbatch job_vasp66_coeus
+cd ..

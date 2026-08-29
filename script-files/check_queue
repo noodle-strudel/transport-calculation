@@ -1,0 +1,20 @@
+#!/bin/bash
+
+get_job_count() {
+	# =1 means its the header and no jobs
+	# >1 means there's 1 or more jobs in the queue
+	local count=$(squeue --me | wc | awk '{print $1}')
+	echo $count
+
+}
+
+wait_for_job() {
+	local job_count=$(get_job_count)
+	while [ $job_count -gt 1 ]
+	do
+		sleep 1m
+		job_count=$(get_job_count)
+	done
+}
+
+get_job_count

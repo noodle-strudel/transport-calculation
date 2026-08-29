@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd $1
+velph init POSCAR . --supercell-matrix=2 0 0 0 2 0 0 0 2 --force --template-toml template.toml
+
+velph phelel init
+
+velph phelel generate
+
+cd phelel/
+
+for num in 0 1 2
+do
+	cd disp-00$num/
+	sbatch _job.sh
+	cd ..
+done
