@@ -67,7 +67,7 @@ class VaspInit():
     
     def copy_init(self, vasp_init):
         """Copy constructor"""
-        self.file_validator = vasp_init.validator
+        self.file_validator = vasp_init.file_validator
         self.poscar_file: vasp_init.poscar_file
         self.potpawpbte_dir: vasp_init.potpawpbte_dir
         self.incar_file: vasp_init.incar_file
